@@ -29,12 +29,14 @@ defmodule ProperCase.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.14.3"}
+      {:ex_doc, "~> 0.14.3"},
+      {:plug, "~> 1.2.2", optional: true},
+      {:poison, "~> 2.2 or ~> 3.0", optional: true},
     ]
   end
 
   defp package do
-    [ 
+    [
       files: ["lib", "mix.exs", "README*", "LICENSE"],
       maintainers: ["Johnny Ji"],
       licenses: ["Apache 2.0"],
@@ -43,6 +45,6 @@ defmodule ProperCase.Mixfile do
         "Docs" => "https://github.com/johnnyji/proper_case"
       }
     ]
-  end 
+  end
 
 end

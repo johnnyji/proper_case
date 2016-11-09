@@ -11,13 +11,11 @@ defmodule ProperCase.Plug.SnakeCaseParams do
     end
 
   Enjoy :)
-   """ 
-   
+   """
+
   def init(opts), do: opts
 
   def call(%{params: params} = conn, _opts) do
     %{conn | params: ProperCase.to_snake_case(params)}
   end
-
-  
 end
