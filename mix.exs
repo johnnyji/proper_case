@@ -2,14 +2,16 @@ defmodule ProperCase.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :proper_case,
-     version: "1.1.0",
-     elixir: "~> 1.2",
-     description: description(),
-     package: package(),
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :proper_case,
+      version: "1.1.0",
+      elixir: "~> 1.2",
+      description: description(),
+      package: package(),
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
@@ -32,7 +34,7 @@ defmodule ProperCase.Mixfile do
       {:ex_doc, "~> 0.14.3", only: :dev},
       {:ecto, "~> 2.1", only: [:test]},
       {:plug, "~> 1.2.2", only: [:test]},
-      {:poison, ">= 1.3.0", only: [:test]},
+      {:poison, ">= 1.3.0", only: [:test]}
     ]
   end
 
@@ -47,5 +49,4 @@ defmodule ProperCase.Mixfile do
       }
     ]
   end
-
 end
