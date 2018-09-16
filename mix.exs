@@ -4,7 +4,7 @@ defmodule ProperCase.Mixfile do
   def project do
     [app: :proper_case,
      version: "1.2.0",
-     elixir: "~> 1.4.0",
+     elixir: "~> 1.7",
      description: description(),
      package: package(),
      build_embedded: Mix.env == :prod,
