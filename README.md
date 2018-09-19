@@ -1,6 +1,6 @@
 # ProperCase
 
-An Elixir library that converts keys in maps between `snake_case` and `camel_case`.
+An Elixir library that converts keys in maps between `snake_case` and `camelCase`.
 
 Useful as a plug in Phoenix for converting incoming params from JavaScript's `camelCase` to Elixir's `snake_case`
 
@@ -16,10 +16,17 @@ Converts a string to snake case
 Converts a string to camel case
 `ProperCase.camel_case/1`
 
+
+## Documentation
+
+API documentation is available at https://hexdocs.pm/proper_case
+
+
 ## Usage
 
 
-### Example: `ProperCase.to_snake_case`
+### Example
+`ProperCase.to_snake_case`
 ```elixir
 # Before:
 %{"user" => %{
@@ -29,9 +36,9 @@ Converts a string to camel case
       %{"name" => "Luke", "weaponOfChoice" => "lightsaber"},
       %{"name" => "Chewie", "weaponOfChoice" => "bowcaster"},
       %{"name" => "Leia", "weaponOfChoice" => "blaster"}
-    ] 
+    ]
   }
-} 
+}
 
 # After:
 %{"user" => %{
@@ -63,11 +70,10 @@ Plug it into your `router.ex` connection pipeline like so:
 
 ### camelCase before encoding json in Phoenix
 
-Set phoenix's json encoder in `config/config.exs`, this way ProperCase will camelCase your data before
-encoding to JSON:
+Set Phoenix's json encoder in `config/config.exs`. This way, ProperCase will camelCase your data before encoding to JSON:
 
 ```elixir
-  :phoenix, :format_encoders, json: ProperCase.JSONEncoder.CamelCase
+config :phoenix, :format_encoders, json: ProperCase.JSONEncoder.CamelCase
 ```
 
 ### Custom data transform before encoding with Phoenix
@@ -76,33 +82,35 @@ To ensure that outgoing params are converted to `camelCase`, define a custom JSO
 
 ```elixir
 def MyApp.CustomJSONEncoder do
-  use ProperCase.JSONEncoder, transform: &ProperCase.to_camel_case/1
+  use ProperCase.JSONEncoder,
+  transform: &ProperCase.to_camel_case/1,
+  json_encoder: Jason  # optional, to use Jason instead of Poison
 end
 ```
 
 config.exs
 
 ```elixir
-  :phoenix, :format_encoders, json: MyApp.CustomJSONEncoder
+config :phoenix, :format_encoders, json: MyApp.CustomJSONEncoder
 ```
 
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+ProperCase is available on hex.pm, and can be installed as:
 
   1. Add proper_case to your list of dependencies in `mix.exs`:
-
+```
         def deps do
           [{:proper_case, "~> 1.0.2"}]
         end
-
-  2. Ensure proper_case is started before your application:
-
+```
+  2. For Elixir versions < 1.5: ensure proper_case is started before your application:
+```
         def application do
           [applications: [:proper_case]]
         end
-
+```
 
 
 
