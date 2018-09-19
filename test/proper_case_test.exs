@@ -51,6 +51,34 @@ defmodule ProperCaseTest do
     assert ProperCase.camel_case(12.0) === 12.0
   end
 
+  test ".to_camel_case in upper mode converts a maps key to `CamelCase`" do
+    incoming = %{ "user" => %{ "first_name" => "Han", "last_name" => "Solo",
+        "allies_in_combat" => [
+          %{"name" => "Luke", "weapon_of_choice" => "lightsaber"},
+          %{"name" => "Chewie", "weapon_of_choice" => "bowcaster"},
+          %{"name" => "Leia", "weapon_of_choice" => "blaster"}
+        ]
+      }
+    }
+    expected = %{
+      "User" => %{
+        "FirstName" => "Han",
+        "LastName" => "Solo",
+        "AlliesInCombat" => [
+          %{"Name" => "Luke", "WeaponOfChoice" => "lightsaber"},
+          %{"Name" => "Chewie", "WeaponOfChoice" => "bowcaster"},
+          %{"Name" => "Leia", "WeaponOfChoice" => "blaster"}
+        ]
+      }
+    }
+
+    assert ProperCase.to_camel_case(incoming, :upper) === expected
+  end
+
+  test ".camel_case_key in upper mode camel cases a string" do
+    assert ProperCase.camel_case("chewie_were_home", :upper) === "ChewieWereHome"
+  end
+
   test ".to_snake_case converts map keys to `snake_case`" do
     expected_params = %{
       "user" => %{

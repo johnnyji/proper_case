@@ -4,8 +4,8 @@ defmodule ProperCase.Mixfile do
   def project do
     [
       app: :proper_case,
-      version: "1.1.0",
-      elixir: "~> 1.2",
+      version: "1.2.0",
+      elixir: "~> 1.4",
       description: description(),
       package: package(),
       build_embedded: Mix.env() == :prod,
@@ -31,7 +31,7 @@ defmodule ProperCase.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.14.3", only: :dev},
+      {:ex_doc, "~> 0.16.3", only: :dev},
       {:ecto, "~> 2.1", only: [:test]},
       {:plug, "~> 1.2.2", only: [:test]},
       {:poison, ">= 1.3.0", only: [:test]}

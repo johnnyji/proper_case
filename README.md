@@ -1,6 +1,6 @@
 # ProperCase
 
-An Elixir library that converts keys in maps between `snake_case` and `camel_case`.
+An Elixir library that converts keys in maps between `snake_case` and `camelCase`.
 
 Useful as a plug in Phoenix for converting incoming params from JavaScript's `camelCase` to Elixir's `snake_case`
 
