@@ -27,7 +27,7 @@ defmodule ProperCase do
     |> Enum.map(&to_camel_case(&1, mode))
   end
 
-  def to_camel_case(final_val, mode), do: final_val
+  def to_camel_case(final_val, _mode), do: final_val
 
   @doc """
   Converts all the keys in a map to `snake_case`.
