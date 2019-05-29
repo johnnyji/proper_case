@@ -98,6 +98,8 @@ defmodule ProperCase do
   Converts a string to `snake_case`
   """
   def snake_case(val) do
-    val |> Macro.underscore
+    val
+    |> String.replace(" ", "")
+    |> Macro.underscore
   end
 end
