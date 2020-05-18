@@ -34,6 +34,6 @@ defmodule ProperCase.JSONEncoderTest do
 
     result = TestEncoder.encode_to_iodata!(data)
 
-    assert Poison.decode!(result) == expected_data
+    assert Jason.decode!(result) == expected_data
   end
 end

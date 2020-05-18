@@ -5,7 +5,7 @@ defmodule ProperCase.JSONEncoder do
 
     Options:
     transform - artity 1 function that is executed before passing the result to json_encoder.encode_to_iodata!
-    json_encoder - JSON encoder that implements encode_to_iodata!. Default: Poison
+    json_encoder - JSON encoder that implements encode_to_iodata!. Default: Jason
 
     usage:
       def MyApp.CustomJSONEncoder do
@@ -19,7 +19,7 @@ defmodule ProperCase.JSONEncoder do
   """
 
   defmacro __using__(options) do
-    json_encoder = Keyword.get(options, :json_encoder, Poison)
+    json_encoder = Keyword.get(options, :json_encoder, Jason)
 
     quote do
       def encode_to_iodata!(data) do

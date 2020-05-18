@@ -33,7 +33,7 @@ defmodule ProperCase.Plug.SnakeCaseParamsTest do
     |> Plug.Parsers.call(
       parsers: [:urlencoded, :multipart, :json],
       pass: ["*/*"],
-      json_decoder: Poison
+      json_decoder: Jason
     )
   end
 end

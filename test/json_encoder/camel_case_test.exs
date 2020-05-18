@@ -28,6 +28,6 @@ defmodule ProperCase.JSONEncoder.CamelCaseTest do
 
     result = ProperCase.JSONEncoder.CamelCase.encode_to_iodata!(data)
 
-    assert Poison.decode!(result) == expected_data
+    assert Jason.decode!(result) == expected_data
   end
 end

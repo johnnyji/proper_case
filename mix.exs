@@ -33,7 +33,7 @@ defmodule ProperCase.Mixfile do
     [
       {:ex_doc, "~> 0.16.3", only: :dev},
       {:plug, "~> 1.2.2", only: [:test]},
-      {:poison, ">= 1.3.0", only: [:test]}
+      {:jason, "~> 1.2.1", only: [:test]}
     ]
   end
 
