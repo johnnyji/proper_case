@@ -2,7 +2,7 @@ defmodule ProperCase.JSONEncoderTest do
   use ExUnit.Case, async: true
 
   defmodule TestEncoder do
-    use ProperCase.JSONEncoder, transform: fn(data) -> %{transformed: data} end
+    use ProperCase.JSONEncoder, transform: fn data -> %{transformed: data} end
   end
 
   test "transforms before encoding" do
@@ -13,9 +13,9 @@ defmodule ProperCase.JSONEncoderTest do
         allies_in_combat: [
           %{name: "Luke", weapon_of_choice: "lightsaber"},
           %{name: "Chewie", weapon_of_choice: "bowcaster"},
-          %{name: "Leia", weapon_of_choice: "blaster"},
-        ],
-      },
+          %{name: "Leia", weapon_of_choice: "blaster"}
+        ]
+      }
     }
 
     expected_data = %{
@@ -28,8 +28,8 @@ defmodule ProperCase.JSONEncoderTest do
             %{"name" => "Chewie", "weapon_of_choice" => "bowcaster"},
             %{"name" => "Leia", "weapon_of_choice" => "blaster"}
           ]
-        },
-      },
+        }
+      }
     }
 
     result = TestEncoder.encode_to_iodata!(data)
