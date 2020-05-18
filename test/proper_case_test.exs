@@ -30,7 +30,7 @@ defmodule ProperCaseTest do
   end
 
   test ".to_camel_case treats non-Enumerable structs as plain values" do
-    epoch = DateTime.from_unix!(0, :microseconds)
+    epoch = DateTime.from_unix!(0, :microsecond)
     incoming = %{"unix_epoch" => epoch}
     expected = %{"unixEpoch" => epoch}
 
