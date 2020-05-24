@@ -84,7 +84,7 @@ To ensure that outgoing params are converted to `camelCase`, define a custom JSO
 def MyApp.CustomJSONEncoder do
   use ProperCase.JSONEncoder,
   transform: &ProperCase.to_camel_case/1,
-  json_encoder: Jason  # optional, to use Jason instead of Poison
+  json_encoder: Poison  # optional, to use Posion instead of Jason
 end
 ```
 

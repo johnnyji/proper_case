@@ -2,7 +2,10 @@ defmodule ProperCaseTest do
   use ExUnit.Case, async: true
 
   test ".to_camel_case converts a maps key to `camelCase`" do
-    incoming = %{ "user" => %{ "first_name" => "Han", "last_name" => "Solo",
+    incoming = %{
+      "user" => %{
+        "first_name" => "Han",
+        "last_name" => "Solo",
         "allies_in_combat" => [
           %{"name" => "Luke", "weapon_of_choice" => "lightsaber"},
           %{"name" => "Chewie", "weapon_of_choice" => "bowcaster"},
@@ -10,6 +13,7 @@ defmodule ProperCaseTest do
         ]
       }
     }
+
     expected = %{
       "user" => %{
         "firstName" => "Han",
@@ -27,9 +31,8 @@ defmodule ProperCaseTest do
 
   test ".to_camel_case treats non-Enumerable structs as plain values" do
     epoch = DateTime.from_unix!(0, :microsecond)
-    incoming = %{ "unix_epoch" => epoch }
-    expected = %{ "unixEpoch" => epoch }
-
+    incoming = %{"unix_epoch" => epoch}
+    expected = %{"unixEpoch" => epoch}
     assert ProperCase.to_camel_case(incoming) === expected
   end
 
@@ -52,7 +55,10 @@ defmodule ProperCaseTest do
   end
 
   test ".to_camel_case in upper mode converts a maps key to `CamelCase`" do
-    incoming = %{ "user" => %{ "first_name" => "Han", "last_name" => "Solo",
+    incoming = %{
+      "user" => %{
+        "first_name" => "Han",
+        "last_name" => "Solo",
         "allies_in_combat" => [
           %{"name" => "Luke", "weapon_of_choice" => "lightsaber"},
           %{"name" => "Chewie", "weapon_of_choice" => "bowcaster"},
@@ -60,6 +66,7 @@ defmodule ProperCaseTest do
         ]
       }
     }
+
     expected = %{
       "User" => %{
         "FirstName" => "Han",
@@ -91,7 +98,9 @@ defmodule ProperCaseTest do
         ]
       }
     }
-    incoming_params = %{"user" => %{
+
+    incoming_params = %{
+      "user" => %{
         "firstName" => "Han",
         "lastName" => "Solo",
         "alliesInCombat" => [
@@ -101,6 +110,7 @@ defmodule ProperCaseTest do
         ]
       }
     }
+
     assert ProperCase.to_snake_case(incoming_params) === expected_params
   end
 

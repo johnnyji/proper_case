@@ -9,7 +9,7 @@ defmodule ProperCase.Plug.SnakeCaseParamsTest do
       "firstParam" => "first",
       "SecondParam" => "second",
       "nestedParam" => %{
-        "innerParam" => "inner",
+        "innerParam" => "inner"
       }
     }
 
@@ -20,12 +20,12 @@ defmodule ProperCase.Plug.SnakeCaseParamsTest do
       |> SnakeCaseParams.call([])
 
     assert conn.params == %{
-      "first_param" => "first",
-      "second_param" => "second",
-      "nested_param" => %{
-        "inner_param" => "inner",
-      }
-    }
+             "first_param" => "first",
+             "second_param" => "second",
+             "nested_param" => %{
+               "inner_param" => "inner"
+             }
+           }
   end
 
   defp receive_request(conn) do
@@ -33,7 +33,7 @@ defmodule ProperCase.Plug.SnakeCaseParamsTest do
     |> Plug.Parsers.call(
       parsers: [:urlencoded, :multipart, :json],
       pass: ["*/*"],
-      json_decoder: Poison
+      json_decoder: Jason
     )
   end
 end

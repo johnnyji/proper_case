@@ -11,11 +11,12 @@ defmodule ProperCase do
   the struct is considered to be a single value.
   """
   def to_camel_case(any), do: to_camel_case(any, :lower)
+
   def to_camel_case(map, mode) when is_map(map) do
     try do
       for {key, val} <- map,
-        into: %{},
-        do: {camel_case(key, mode), to_camel_case(val, mode)}
+          into: %{},
+          do: {camel_case(key, mode), to_camel_case(val, mode)}
     rescue
       # Not Enumerable
       Protocol.UndefinedError -> map
@@ -37,8 +38,8 @@ defmodule ProperCase do
   def to_snake_case(map) when is_map(map) do
     try do
       for {key, val} <- map,
-        into: %{},
-        do: {snake_case(key), to_snake_case(val)}
+          into: %{},
+          do: {snake_case(key), to_snake_case(val)}
     rescue
       # Not Enumerable
       Protocol.UndefinedError -> map
@@ -56,11 +57,13 @@ defmodule ProperCase do
   Converts an atom to a `camelCase` string
   """
   def camel_case(key), do: camel_case(key, :lower)
+
   def camel_case(key, mode) when is_atom(key) do
     key
-    |> Atom.to_string
+    |> Atom.to_string()
     |> camel_case(mode)
   end
+
   def camel_case(val, _mode) when is_number(val), do: val
 
   @doc """
@@ -72,13 +75,15 @@ defmodule ProperCase do
 
   def camel_case(key, :lower) when is_binary(key) do
     first_char = key |> first
+
     key
-    |> Macro.camelize
+    |> Macro.camelize()
     |> replace(upcase(first_char), downcase(first_char), global: false)
   end
+
   def camel_case(key, :upper) when is_binary(key) do
     key
-    |> Macro.camelize
+    |> Macro.camelize()
   end
 
   @doc """
@@ -86,8 +91,8 @@ defmodule ProperCase do
   """
   def snake_case(val) when is_atom(val) do
     val
-    |> Atom.to_string
-    |> Macro.underscore
+    |> Atom.to_string()
+    |> Macro.underscore()
   end
 
   def snake_case(val) when is_number(val) do
@@ -100,6 +105,6 @@ defmodule ProperCase do
   def snake_case(val) do
     val
     |> String.replace(" ", "")
-    |> Macro.underscore
+    |> Macro.underscore()
   end
 end
