@@ -81,7 +81,7 @@ config :phoenix, :format_encoders, json: ProperCase.JSONEncoder.CamelCase
 To ensure that outgoing params are converted to `camelCase`, define a custom JSON encoder that runs a transform before encoding to json.
 
 ```elixir
-def MyApp.CustomJSONEncoder do
+defmodule MyApp.CustomJSONEncoder do
   use ProperCase.JSONEncoder,
   transform: &ProperCase.to_camel_case/1,
   json_encoder: Poison  # optional, to use Posion instead of Jason
