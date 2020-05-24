@@ -1,60 +1,58 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.16.3">
-    <title>ProperCase.JSONEncoder – proper_case v1.3.0</title>
-    <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
-    
-      <link rel="canonical" href="https://hexdocs.pm/proper_case/ProperCase.JSONEncoder.html" />
-    
-    <script src="dist/sidebar_items-00f2892754.js"></script>
-    
+    <meta name="generator" content="ExDoc v0.22.1">
+    <meta name="project" content="proper_case v1.3.1">
+    <title>ProperCase.JSONEncoder — proper_case v1.3.1</title>
+    <link rel="stylesheet" href="dist/elixir-e589b8fad3dab6230c65.css" />
+    <script src="dist/sidebar_items-91207318ba.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-5c0c23dfec2d63ae33a2.js"></script>
   </head>
   <body data-type="modules">
-    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
 
-    <div class="main">
-<button class="sidebar-toggle">
-  <span class="icon-menu" aria-hidden="true"></span>
-  <span class="sr-only">Toggle Sidebar</span>
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
 </button>
+
 <section class="sidebar">
-
-  
-  <a href="api-reference.html" class="sidebar-projectLink">
-    <div class="sidebar-projectDetails">
-      <h1 class="sidebar-projectName">
-        proper_case
-      </h1>
-      <h2 class="sidebar-projectVersion">
-        v1.3.0
-      </h2>
-    </div>
-    
-  </a>
-
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button">
       <span class="icon-search" aria-hidden="true"></span>
     </button>
-    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+    <button type="button" tabindex="-1" class="search-close-button">
+      <span class="icon-cross" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Search" autocomplete="off" />
+    </label>
   </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="api-reference.html" class="sidebar-projectName">
+proper_case      </a>
+      <h2 class="sidebar-projectVersion">
+        v1.3.1
+      </h2>
+    </div>
+  </div>
 
   <ul class="sidebar-listNav">
     <li><a id="extras-list" href="#full-list">Pages</a></li>
 
-    
       <li><a id="modules-list" href="#full-list">Modules</a></li>
-    
 
-    
-
-    
-
-    
   </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
@@ -64,58 +62,54 @@
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-
       <h1>
-        <small class="visible-xs">proper_case v1.3.0</small>
-        ProperCase.JSONEncoder
-        
-      </h1>
+        <small class="app-vsn">proper_case v1.3.1</small>
+ProperCase.JSONEncoder      </h1>
 
-      
+
         <section id="moduledoc">
-          <p>  module that exposes a version of <code class="inline">encode_to_iodata!/1</code> that transforms data
-  before encoding to json. This is designed to work with phoenix.</p>
-<p>  Options:
+<p>  module that exposes a version of <code class="inline">encode_to_iodata!/1</code> that transforms data
+  before encoding to json. This is designed to work with phoenix.</p><p>  Options:
   transform - artity 1 function that is executed before passing the result to json_encoder.encode_to_iodata!
-  json_encoder - JSON encoder that implements encode_to_iodata!. Default: Poison</p>
-<p>  usage:</p>
-<pre><code class="elixir">def MyApp.CustomJSONEncoder do
-  use ProperCase.JSONEncoder, transform: &amp;ProperCase.to_camel_case/1
-end
+  json_encoder - JSON encoder that implements encode_to_iodata!. Default: Jason</p><p>  usage:</p><pre><code class="nohighlight makeup elixir"><span class="kd">def</span><span class="w"> </span><span class="nc">MyApp.CustomJSONEncoder</span><span class="w"> </span><span class="k" data-group-id="3216298290-1">do</span><span class="w">
+  </span><span class="kn">use</span><span class="w"> </span><span class="nc">ProperCase.JSONEncoder</span><span class="p">,</span><span class="w"> </span><span class="ss">transform</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nc">ProperCase</span><span class="o">.</span><span class="n">to_camel_case</span><span class="o">/</span><span class="mi">1</span><span class="w">
+</span><span class="k" data-group-id="3216298290-1">end</span><span class="w">
 
-config.exs
+</span><span class="n">config</span><span class="o">.</span><span class="n">exs</span><span class="w">
 
-:phoenix, :format_encoders, json: MyApp.CustomJSONEncoder</code></pre>
+</span><span class="ss">:phoenix</span><span class="p">,</span><span class="w"> </span><span class="ss">:format_encoders</span><span class="p">,</span><span class="w"> </span><span class="ss">json</span><span class="p">:</span><span class="w"> </span><span class="nc">MyApp.CustomJSONEncoder</span></code></pre>        </section>
 
-        </section>
-      
 
-      
-
-      
-
-      
-
-      
-          <footer class="footer">
+      <footer class="footer">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.16.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.22.1),
           </span>
           <span class="line">
             designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
-            </span>
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
         </p>
-        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
+        <p>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
       </footer>
     </div>
   </div>
 </section>
 </div>
-  <script src="dist/app-da04b39d0c.js"></script>
-  
   </body>
 </html>
-
