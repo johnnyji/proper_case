@@ -4,7 +4,7 @@ defmodule ProperCase.Mixfile do
   def project do
     [
       app: :proper_case,
-      version: "1.3.1",
+      version: "1.3.2-dev",
       elixir: "~> 1.4",
       description: description(),
       package: package(),
