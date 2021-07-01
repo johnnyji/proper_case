@@ -87,7 +87,7 @@ defmodule ProperCase do
   end
 
   @doc """
-  Converts an to `snake_case` string`
+  Convert a value to a `snake_case` string
   """
   def snake_case(val) when is_atom(val) do
     val
@@ -99,9 +99,6 @@ defmodule ProperCase do
     val
   end
 
-  @doc """
-  Converts a string to `snake_case`
-  """
   def snake_case(val) do
     val
     |> String.replace(" ", "")
