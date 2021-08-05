@@ -102,7 +102,7 @@ ProperCase is available on hex.pm, and can be installed as:
   1. Add proper_case to your list of dependencies in `mix.exs`:
 ```
         def deps do
-          [{:proper_case, "~> 1.0.2"}]
+          [{:proper_case, "~> 1.3"}]
         end
 ```
   2. For Elixir versions < 1.5: ensure proper_case is started before your application:
