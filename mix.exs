@@ -10,7 +10,11 @@ defmodule ProperCase.Mixfile do
       package: package(),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+
+      # Docs.
+      name: "ProperCase",
+      docs: docs()
     ]
   end
 
@@ -46,6 +50,14 @@ defmodule ProperCase.Mixfile do
         "GitHub" => "https://github.com/johnnyji/proper_case",
         "Docs" => "https://github.com/johnnyji/proper_case"
       }
+    ]
+  end
+
+  defp docs do
+    [
+      main: "ProperCase",
+      source_url: "https://github.com/yunmikun2/proper_case",
+      extras: ["README.md"]
     ]
   end
 end
