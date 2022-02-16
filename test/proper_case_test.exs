@@ -49,6 +49,10 @@ defmodule ProperCaseTest do
     assert ProperCase.camel_case(:no_i_am_your_father) === "noIAmYourFather"
   end
 
+  test ".camel_case_key leaves an empty string key as it is" do
+    assert ProperCase.camel_case("") === ""
+  end
+
   test ".camel_case_key converts a number properly" do
     assert ProperCase.camel_case(12) === 12
     assert ProperCase.camel_case(12.0) === 12.0
@@ -132,6 +136,10 @@ defmodule ProperCaseTest do
 
   test ".snake_case converts string with spaces to `snake_case`" do
     assert ProperCase.snake_case("get To Da Choppa") === "get_to_da_choppa"
+  end
+
+  test ".snake_case leaves an empty string key as it is" do
+    assert ProperCase.snake_case("") === ""
   end
 
   test ".snake_case converts a number properly" do
