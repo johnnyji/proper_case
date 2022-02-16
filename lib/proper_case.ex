@@ -69,6 +69,8 @@ defmodule ProperCase do
   @doc """
   Converts a string to `camelCase`
   """
+  def camel_case("", _), do: ""
+
   def camel_case("_" <> rest, mode) do
     "_#{camel_case(rest, mode)}"
   end
